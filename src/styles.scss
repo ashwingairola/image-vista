@@ -2,3 +2,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type='text'] {
+  @apply px-4 py-2 border-2 border-gray-200 rounded-full bg-gray-200;
+
+  &:focus {
+    @apply outline-none border-purple-500;
+  }
+
+  &:hover {
+    @apply bg-white;
+  }
+}
