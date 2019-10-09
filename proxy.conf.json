@@ -1,0 +1,11 @@
+{
+  "/imgApi/*": {
+    "target": "https://api.unsplash.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/imgApi": ""
+    }
+  }
+}
