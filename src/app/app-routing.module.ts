@@ -3,16 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'search',
+    path: '',
     loadChildren: () =>
       import('./routes/search/search.module').then(
         module => module.SearchModule
       )
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'search'
   }
 ];
 
