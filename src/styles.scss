@@ -4,13 +4,22 @@
 @tailwind utilities;
 
 input[type='text'] {
-  @apply px-4 py-2 border-2 border-gray-200 rounded-full bg-gray-200;
+  transition: width 0.2s, border-color 0.2s;
+  @apply px-4 py-2 border-2 border-gray-200 rounded-full bg-gray-200 w-64;
 
   &:focus {
-    @apply outline-none border-purple-500;
+    @apply outline-none border-purple-500 bg-white;
   }
 
   &:hover {
     @apply bg-white;
+  }
+
+  &.input-expandable:focus {
+    @screen sm {
+      @apply w-1/2;
+    }
+
+    @apply w-full;
   }
 }

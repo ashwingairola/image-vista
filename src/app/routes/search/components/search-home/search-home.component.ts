@@ -19,7 +19,6 @@ export class SearchHomeComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log(this.searchForm);
     const query = this.searchForm.value.searchQuery;
     this.router.navigate(['/search'], { queryParams: { query } });
   }
