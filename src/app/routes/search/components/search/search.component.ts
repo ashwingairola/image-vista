@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -11,15 +11,15 @@ import { UnsplashApiService } from '@imgvista/api/unsplash/unsplash-api.service'
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  query: string;
   searchForm: FormGroup;
+  searchResults: any;
   private queryParamsSub?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private unsplashApi: UnsplashApiService
   ) {
-    this.query = '';
     this.searchForm = new FormGroup({
       searchQuery: new FormControl(null, [Validators.required])
     });
@@ -27,8 +27,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.queryParamsSub = this.route.queryParamMap.subscribe(queryParams => {
-      this.query = queryParams.get('query') || 'all';
-      this.searchForm.controls.searchQuery.patchValue(this.query);
+      const query = queryParams.get('query') || 'all';
+      this.searchForm.controls.searchQuery.patchValue(query);
       this.fetchImages();
     });
   }
@@ -39,15 +39,22 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  fetchImages() {
+  onSubmit() {
     if (this.searchForm.invalid) {
       return;
     }
 
+    this.router.navigate(['./'], {
+      relativeTo: this.route,
+      queryParams: { query: this.searchForm.value.searchQuery }
+    });
+  }
+
+  fetchImages() {
     this.unsplashApi
       .searchPhotos(this.searchForm.value.searchQuery)
       .subscribe(result => {
-        console.log(result);
+        this.searchResults = result;
       });
   }
 }

@@ -1,5 +1,5 @@
 <section class="py-8">
-  <form [formGroup]="searchForm" (ngSubmit)="fetchImages()">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <input
       type="text"
       class="input-expandable"
@@ -7,4 +7,15 @@
       formControlName="searchQuery"
     />
   </form>
+
+  <div class="my-4">
+    <hr />
+  </div>
+
+  <section>
+    <app-image-results-grid
+      *ngIf="searchResults"
+      [searchResult]="searchResults"
+    ></app-image-results-grid>
+  </section>
 </section>

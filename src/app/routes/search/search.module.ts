@@ -7,9 +7,10 @@ import { UnsplashApiService } from '@imgvista/api/unsplash/unsplash-api.service'
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchHomeComponent } from './components/search-home/search-home.component';
 import { SearchComponent } from './components/search/search.component';
+import { ImageResultsGridComponent } from './components/image-results-grid/image-results-grid.component';
 
 @NgModule({
-  declarations: [SearchHomeComponent, SearchComponent],
+  declarations: [SearchHomeComponent, SearchComponent, ImageResultsGridComponent],
   imports: [CommonModule, ReactiveFormsModule, SearchRoutingModule],
   providers: [UnsplashApiService]
 })
