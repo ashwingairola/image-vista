@@ -16,7 +16,8 @@
     "paths": {
       "@imgvista/env": ["./src/environments/environment"],
       "@imgvista/interceptors/*": ["./src/app/interceptors/*"],
-      "@imgvista/api/*": ["./src/app/api/*"]
+      "@imgvista/api/*": ["./src/app/api/*"],
+      "@imgvista/contracts/*": ["./src/app/contracts/*"]
     }
   },
   "angularCompilerOptions": {

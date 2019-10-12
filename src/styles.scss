@@ -23,3 +23,16 @@ input[type='text'] {
     @apply w-full;
   }
 }
+
+.grid-container {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.grid-rows-auto {
+  grid-auto-rows: 2rem;
+}
+
+.grid-columns {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

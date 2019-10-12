@@ -1,1 +1,10 @@
-<p>image-results-grid works!</p>
+<section class="mt-4">
+  <div class="grid-container grid-rows-auto grid-columns">
+    <div
+      *ngFor="let photo of searchResult.results"
+      class="rounded overflow-hidden shadow p-4"
+    >
+      <img [src]="photo.urls.regular" alt="Photo" />
+    </div>
+  </div>
+</section>
