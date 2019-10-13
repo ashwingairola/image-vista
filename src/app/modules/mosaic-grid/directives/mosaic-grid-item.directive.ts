@@ -12,7 +12,8 @@ import { MosaicGridItemContentDirective } from './mosaic-grid-item-content.direc
 import { timer } from 'rxjs';
 
 @Directive({
-  selector: '[appMosaicGridItem]'
+  selector:
+    'div[appMosaicGridItem], section[appMosaicGridItem], article[appMosaicGridItem]'
 })
 export class MosaicGridItemDirective implements AfterViewInit {
   @ContentChild(MosaicGridItemContentDirective, {
@@ -43,7 +44,6 @@ export class MosaicGridItemDirective implements AfterViewInit {
     const rowSpan = Math.ceil(
       content.getBoundingClientRect().height / (rowHeight + rowGap)
     );
-    console.log(content.getBoundingClientRect().height);
 
     this.el.nativeElement.style.gridRowEnd = `span ${rowSpan}`;
   }
