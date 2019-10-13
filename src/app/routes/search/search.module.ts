@@ -10,14 +10,12 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchHomeComponent } from './components/search-home/search-home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ImageResultsGridComponent } from './components/image-results-grid/image-results-grid.component';
-import { SearchResultComponent } from './components/search-result/search-result.component';
 
 @NgModule({
   declarations: [
     SearchHomeComponent,
     SearchComponent,
-    ImageResultsGridComponent,
-    SearchResultComponent
+    ImageResultsGridComponent
   ],
   imports: [
     CommonModule,
