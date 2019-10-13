@@ -1,10 +1,19 @@
 <section class="mt-4">
-  <div class="grid-container grid-rows-auto grid-columns">
-    <div
-      *ngFor="let photo of searchResult.results"
-      class="rounded overflow-hidden shadow p-4"
-    >
-      <img [src]="photo.urls.regular" alt="Photo" />
+  <app-mosaic-grid-container [rowGap]="1" [columnGap]="1">
+    <div appMosaicGridItem *ngFor="let photo of searchResult.results">
+      <div appMosaicGridItemContent class="rounded shadow">
+        <img [src]="photo.urls.regular" alt="Photo" />
+      </div>
     </div>
-  </div>
+  </app-mosaic-grid-container>
 </section>
+
+<!-- <section class="mt-4">
+  <app-mosaic-grid-container [rowGap]="1" [columnGap]="1">
+    < *ngFor="let photo of searchResult.results">
+      <div #gridItemContent class="rounded shadow">
+        <img [src]="photo.urls.regular" alt="Photo" />
+      </div>
+    </>
+  </app-mosaic-grid-container>
+</section> -->
